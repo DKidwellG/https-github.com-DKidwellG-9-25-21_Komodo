@@ -8,14 +8,14 @@ namespace Komodo_Insurance
 {
     class TeamRepo
     {
-        public string TeamMembers { get; set; }
+        public List<DevRepo> TeamMembers { get; set; }
         public string TeamName { get; set; }
         public short TeamID { get; set; }
 
         public TeamRepo() { }
-        public TeamRepo(string teamMembers,string teamName, short teamId)
+        public TeamRepo(string teamName, short teamId)
         {
-            TeamMembers = teamMembers;
+            TeamMembers = new List<DevRepo>();
             TeamName = teamName;
             TeamID = teamId;
         }

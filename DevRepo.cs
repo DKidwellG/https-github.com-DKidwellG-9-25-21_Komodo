@@ -80,7 +80,7 @@ namespace Komodo_Insurance
 
 
         //helper
-        private DevRepo GetDevById(short id)
+        public DevRepo GetDevById(short id)
         {
             foreach (DevRepo content in _listOfDev)
             {

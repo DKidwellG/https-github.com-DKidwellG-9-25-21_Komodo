@@ -9,6 +9,7 @@ namespace Komodo_Insurance
     class UI
     {
         private DevRepo _devRepo = new DevRepo();
+        private TeamRepo _teamRepo = new TeamRepo();
         public void Run()
         {
             SeedDevList();
@@ -32,7 +33,7 @@ namespace Komodo_Insurance
                     "6. Create a Team\n" +
                     "7. list of teams\n" +
                     "8. Update team\n" +
-                    "8. Delete team\n" +
+                    "9. Delete team\n" +
                     "10. Exit");
 
                 //get input
@@ -41,44 +42,44 @@ namespace Komodo_Insurance
                 //evaluate input
                 switch (input)
                 {
-                    case "1.":
+                    case "1":
                         //create
                         CreatNewDev();
                         break;
-                    case "2.":
+                    case "2":
                         //list of all dev
                         ViewAllDev();
                         break;
 
-                    case "3.":
+                    case "3":
                         //list of dev by id
                         ViewDevById();
                         break;
-                    case "4.":
+                    case "4":
                         //update dev
                         UpdateDev();
                         break;
-                    case "5.":
+                    case "5":
                         //delete dev
                         DeleteDev();
                         break;
-                    case "6.":
+                    case "6":
                         //create a team
                         CreateTeam();
                         break;
-                    case "7.":
+                    case "7":
                         //list of teams
                         ViewAllTeams();
                         break;
-                    case "8.":
+                    case "8":
                         //update team
                         UpdateTeam();
                         break;
-                    case "9.":
+                    case "9":
                         //delete team
                         DeleteTeam();
                         break;
-                    case "10.":
+                    case "10":
                         //exit
                         Console.WriteLine("Bu-by");
                         keepRunning = false;
@@ -146,7 +147,7 @@ namespace Komodo_Insurance
         {
             Console.Clear();
             Console.WriteLine("enter developers ID");
-            short devId = Console.ReadLine();
+            short devId = short.Parse (Console.ReadLine());
             DevRepo content = _devRepo.GetDevById(devId);
             if(content != null)
             {
@@ -165,7 +166,7 @@ namespace Komodo_Insurance
         {
             ViewAllDev();
             Console.WriteLine(" enter the name of the developer tha you want to update:");
-            string oldName = Console.ReadLine();
+            short oldName = short.Parse (Console.ReadLine());
 
             DevRepo newDev = new DevRepo();
             //FirstName
@@ -202,7 +203,7 @@ namespace Komodo_Insurance
         {
             ViewAllDev();
             Console.WriteLine("\n enter the name of the developer that you want to delete:");
-            string input = Console.ReadLine();
+            short input = short.Parse(Console.ReadLine());
             bool wasDeleted = _devRepo.RemoveDevFromList(input);
             if (wasDeleted)
             {
@@ -223,8 +224,8 @@ namespace Komodo_Insurance
             newTeam.TeamName = Console.ReadLine();
 
             //LastName
-            Console.WriteLine(" enter team member");
-            newTeam.TeamMembers = Console.ReadLine();
+           // Console.WriteLine(" enter team member");
+           // newTeam.TeamMembers = Console.ReadLine();
 
             //ID
             Console.WriteLine(" enter teams ID number");
@@ -232,13 +233,13 @@ namespace Komodo_Insurance
             newTeam.TeamID = short.Parse(idAsString);
 
            
-            _listOfTeam.AddTeamToList(newTeam);
+            _teamRepo.AddTeamToList(newTeam);
         }
         //view teams
         private void ViewAllTeams()
         {
             Console.Clear();
-            List<TeamRepo> listOfDevs = _teamRepo.GetTeam();
+            List<TeamRepo> listOfTeams = _teamRepo.GetTeam();
             foreach (TeamRepo content in listOfTeams)
             {
                 Console.WriteLine($"ID: {content.TeamID}\n" +
@@ -251,7 +252,7 @@ namespace Komodo_Insurance
         {
             ViewAllTeams();
             Console.WriteLine(" enter the name of the team tha you want to update:");
-            string oldTeam = Console.ReadLine();
+            short oldTeam = short.Parse(Console.ReadLine());
 
             TeamRepo newTeam = new TeamRepo();
             //FirstName
@@ -262,14 +263,14 @@ namespace Komodo_Insurance
             string teamIdAsString = Console.ReadLine();
             newTeam.TeamID = short.Parse(teamIdAsString);        
 
-            bool wasUpdated = _devRepo.UpdateExistingDev(oldTeam, newTeam);
+            bool wasUpdated = _teamRepo.UpdateExistingTeam(oldTeam, newTeam);
         }
         //delete team
         private void DeleteTeam()
         {
             ViewAllTeams();
             Console.WriteLine("\n enter the name of the team that you want to delete:");
-            string input = Console.ReadLine();
+            short input = short.Parse(Console.ReadLine());
             bool wasDeleted = _teamRepo.RemoveTeamFromList(input);
             if (wasDeleted)
             {
@@ -283,8 +284,8 @@ namespace Komodo_Insurance
         //seed
         private void SeedDevList()
         {
-            DevRepo johnDoe = new DevRepo("john", "doe", 001, "y");
-            DevRepo janeDoe = new DevRepo("jane", "doe", 001, "y");
+            DevRepo johnDoe = new DevRepo("john", "doe", 001, true);
+            DevRepo janeDoe = new DevRepo("jane", "doe", 002, true);
 
             _devRepo.AddDevToList(johnDoe);
             _devRepo.AddDevToList(janeDoe);
