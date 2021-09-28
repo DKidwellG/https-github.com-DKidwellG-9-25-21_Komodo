@@ -1,0 +1,7 @@
+C:\Users\ryzncrap\Desktop\SD-102\C# projects\Komodo Insutence\Komodo Insurance\obj\Debug\Komodo Insurance.csproj.AssemblyReference.cache
+C:\Users\ryzncrap\Desktop\SD-102\C# projects\Komodo Insutence\Komodo Insurance\obj\Debug\Komodo Insurance.csproj.CoreCompileInputs.cache
+C:\Users\ryzncrap\Desktop\SD-102\C# projects\Komodo Insutence\Komodo Insurance\bin\Debug\Komodo Insurance.exe.config
+C:\Users\ryzncrap\Desktop\SD-102\C# projects\Komodo Insutence\Komodo Insurance\bin\Debug\Komodo Insurance.exe
+C:\Users\ryzncrap\Desktop\SD-102\C# projects\Komodo Insutence\Komodo Insurance\bin\Debug\Komodo Insurance.pdb
+C:\Users\ryzncrap\Desktop\SD-102\C# projects\Komodo Insutence\Komodo Insurance\obj\Debug\Komodo Insurance.exe
+C:\Users\ryzncrap\Desktop\SD-102\C# projects\Komodo Insutence\Komodo Insurance\obj\Debug\Komodo Insurance.pdb
